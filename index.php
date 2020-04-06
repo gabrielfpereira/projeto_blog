@@ -1,4 +1,6 @@
 <?php
+require_once 'vendor/autoload.php';
+
 require_once 'app/core/Core.php';
 require_once 'app/model/Conexao.php';
 require_once 'app/model/Comentario.php';
