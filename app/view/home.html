@@ -1,10 +1,10 @@
 <!-- Conteudo -->
 <div class="container py-3 my-3">
 
-  <ul class="artigos">
+  <ul class="">
     {% for post in postagens %}
-        <li class="postagem">
-          <a class="titulo" href="http://localhost/projeto_crud/post/index/{{post.id}}">
+        <li class="postagem" style="list-style: none;">
+          <a class="nav-link" href="http://localhost/projeto_crud/post/index/{{post.id}}" >
             <h1>{{ post.titulo }}</h1>
           </a>
           <p class="descricao">{{ post.conteudo }}</p>
