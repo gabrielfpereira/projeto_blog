@@ -1,6 +1,8 @@
 <?php
 require_once 'app/core/Core.php';
 require_once 'app/model/Conexao.php';
+require_once 'app/model/Comentario.php';
+
 //paginas
 require_once 'app/controller/HomeController.php';
 require_once 'app/controller/ErroController.php';

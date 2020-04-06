@@ -18,9 +18,11 @@ class Postagem{
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':id',$id);
         $stmt->execute();
+        $resultado =array();
 
         if($stmt->rowCount()){
-            $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+            $resultado['postagem'] = $stmt->fetch(PDO::FETCH_OBJ);
+            $resultado['comentario'] = Comentario::selectComentario($id);
             return $resultado;
         }else{
             echo "Post não encontrado";
