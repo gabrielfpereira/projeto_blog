@@ -2,12 +2,15 @@
 <div class="container py-3 my-3">
 
   <ul class="artigos">
-    <li class="postagem">
-      <a class="titulo" href="http://localhost/projeto_crud/post/index/#id#">
-        <h1>#titulo#</h1>
-      </a>
-      <p class="descricao">#conteudo#</p>
-    </li>
+    {% for post in postagens %}
+        <li class="postagem">
+          <a class="titulo" href="http://localhost/projeto_crud/post/index/{{post.id}}">
+            <h1>{{ post.titulo }}</h1>
+          </a>
+          <p class="descricao">{{ post.conteudo }}</p>
+        </li>
+    {% endfor %}
+
   </ul>
 
 </div>

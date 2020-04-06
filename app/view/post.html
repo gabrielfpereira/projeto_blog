@@ -1,15 +1,16 @@
 <div class="container my-3">
-    <h1>#titulo#</h1>
+    <h1>{{ postagem.titulo }}</h1>
     <article>
-        #postagem#
+        {{ postagem.conteudo }}
     </article>
 </div>
 
 <div class="container my-5">
     <h2>Comentarios:</h2>
-
-    <div class="row">
-        <h3>#nome#</h3>
-        <p>#mensagem#</p>
+{% for coment in comentarios %}
+    <div class="bg-info p-3 my-2">
+        <h4>{{coment.nome}}</h4>
+        <p>{{coment.mensagem}}</p>
     </div>
+{% endfor %}
 </div>
