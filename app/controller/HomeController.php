@@ -12,7 +12,7 @@ class HomeController{
         // percorre o objeto das postagens pega cada um e passa para o post
         foreach ($postagem as $post) {
             // Substitui das tags encontradas na home html pelo conteudo do objeto.
-           echo str_replace(array('#titulo#','#conteudo#'),array($post->titulo, $post->conteudo), $tplHome);
+           echo str_replace(array('#titulo#','#conteudo#','#id#'),array($post->titulo, $post->conteudo,$post->id), $tplHome);
         }
     }
 }

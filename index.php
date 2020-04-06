@@ -6,6 +6,7 @@ require_once 'app/controller/HomeController.php';
 require_once 'app/controller/ErroController.php';
 require_once 'app/model/Postagem.php';
 require_once 'app/controller/SobreController.php';
+require_once 'app/controller/PostController.php';
 
 //carrega o arquivo com a base html do site e salva na variavel
 $template = file_get_contents('app/view/base.html');
