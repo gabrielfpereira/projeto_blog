@@ -23,4 +23,20 @@ class PostController{
         echo $template->render($post);
     
     }
+
+    public function comentar($id)
+    {
+        $resultado = Postagem::select($id[0]);
+        $post['postagem']=$resultado['postagem'];
+        $_SESSION['title']= $post['postagem']->titulo;
+        //tratar o post e chamar a model para inserir o comentario
+        $dados['id']= $id[0];
+        $dados['nome']= addslashes($_POST['nome']);
+        $dados['comentario']= addslashes($_POST['comentario']);
+
+        $resultado = Comentario::insert($dados);
+        if($resultado){
+            header('location: http://localhost/projeto_crud/post/index/'.$id[0]);
+        }
+    }
 }

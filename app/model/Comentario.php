@@ -17,4 +17,20 @@ class Comentario{
         return $resultado;
 
     }
+
+    public function insert($dados){
+        // fazer um insert into
+        $conn = Conexao::getConect();
+        $sql = "INSERT INTO comentario(nome,mensagem,id_postagem) VALUE(:n,:m,:id)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':n',$dados['nome']);
+        $stmt->bindValue(':m',$dados['comentario']);
+        $stmt->bindValue(':id',$dados['id']);
+        $stmt->execute();
+
+        if($stmt->rowCount()){
+            return true;
+        }
+
+    }
 }
