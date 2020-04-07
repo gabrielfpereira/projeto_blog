@@ -9,6 +9,12 @@
 
 
 <div class="container my-5">
+    <!-- verifica se existe msg de alerta se hover exibe na tela -->
+    {% if alerta != '' %}
+    <div class="alert alert-{{tipoAlerta}}" role="alert">
+        {{alerta}}
+    </div>
+    {% endif %}
     <h2>Comentarios:</h2>
 
     <div class="col-5">
@@ -29,12 +35,21 @@
         
     </div>
     
-    <hr>
-
-{% for coment in comentarios %}
-    <div class="bg-info p-3 my-2">
-        <h4>{{coment.nome}}</h4>
-        <p>{{coment.mensagem}}</p>
+    <hr> 
+    {% for coment in comentarios %}
+    <div class="row bg-info p-3 my-2" style="border-radius: 5px;">
+        <div class="col-8">
+            <h4>{{coment.nome}}</h4>
+        
+            <p class="bg-light p-3" style="border-radius: 5px;">{{coment.mensagem}}</p>
+        </div>
+     
+        <div class="col-4 text-right">
+            <a href="http://localhost/projeto_crud/post/deletarComentario/{{coment.id}}/{{postagem.id}}" class="btn btn-danger ml-5"> <svg class="bi bi-trash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 1a1 1 0 00-1 1v1a1 1 0 001 1H3v9a2 2 0 002 2h6a2 2 0 002-2V4h.5a1 1 0 001-1V2a1 1 0 00-1-1H10a1 1 0 00-1-1H7a1 1 0 00-1 1H2.5zm3 4a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7a.5.5 0 01.5-.5zM8 5a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7A.5.5 0 018 5zm3 .5a.5.5 0 00-1 0v7a.5.5 0 001 0v-7z" clip-rule="evenodd"/>
+              </svg></i></i> </a>
+        </div>
+        
     </div>
-{% endfor %}
+    {% endfor %}
 </div>

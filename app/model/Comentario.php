@@ -33,4 +33,16 @@ class Comentario{
         }
 
     }
+
+    public function deletar($id){
+        $conn = Conexao::getConect();
+        $sql = "DELETE FROM comentario WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+
+        if($stmt->rowCount()){
+            return true;
+        }
+    }
 }
