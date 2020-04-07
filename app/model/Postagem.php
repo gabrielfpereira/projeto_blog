@@ -30,4 +30,45 @@ class Postagem{
             echo "Post não encontrado";
         }
     }
+
+    public function alterar($dados){
+        $conn = Conexao::getConect();
+        $sql = "UPDATE postagem SET titulo = :t , conteudo = :c WHERE id = :id ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':id',$dados['id']);
+        $stmt->bindValue(':t',$dados['titulo']);
+        $stmt->bindValue(':c',$dados['conteudo']);
+        $stmt->execute();
+
+        if ($stmt->rowCount()) {
+            return true;
+        }
+    }
+
+    public function delete($id){
+        $conn = Conexao::getConect();
+        $sql = "DELETE FROM postagem WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        if ($stmt->rowCount()) {
+            return true;
+        }
+
+    }
+
+    public function insert ($dados)
+    {
+        $conn = Conexao::getConect();
+        $sql = "INSERT INTO postagem(titulo,conteudo) VALUE(:t,:c)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':t',$dados['titulo']);
+        $stmt->bindValue(':c',$dados['conteudo']);
+        $stmt->execute();
+
+        if ($stmt->rowCount()) {
+            return true;
+        }
+    }
 }

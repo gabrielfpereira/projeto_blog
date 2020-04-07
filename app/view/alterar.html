@@ -1,0 +1,19 @@
+<div class="container">
+
+    <form method="POST" action="http://localhost/projeto_crud/painel/update/{{postagem.id}}">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Titulo do Post:</label>
+          <input name="titulo" type="text" class="form-control" id="exampleFormControlInput1" value="{{postagem.titulo}}">
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Conteúdo:</label>
+          <textarea name="conteudo" value="Conteudo aqui" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+            <button type="submit" class="btn btn-secondary">Postar</button>
+        </div>  
+      </form>
+
+</div>
